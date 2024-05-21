@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Numbers</title>
+</head>
+<body>
+<h1>Sort Numbers</h1>
+<label for="numbers">Enter numbers (space-separated):</label>
+<textarea id="numbers" rows="4" cols="50"></textarea><br>
+<label for="algorithm">Choose an algorithm:</label>
+<select id="algorithm">
+    <option value="merge">Merge Sort</option>
+    <option value="heap">Heap Sort</option>
+    <option value="insertion">Insertion Sort</option>
+    <option value="selection">Selection Sort</option>
+    <option value="quick">Quick Sort</option>
+</select><br>
+<button id="sort-button">Sort</button>
+<div id="result">
+    <p>Sorted Numbers:</p>
+    <pre id="sorted-numbers"></pre>
+    <p>Execution Time:</p>
+    <span id="execution-time"></span> ms
+</div>
+<script src="sort.js"></script>
+</body>
+</html>
