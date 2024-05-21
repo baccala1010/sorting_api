@@ -1,8 +1,6 @@
 package com.example.sortapplicationapi;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -36,10 +34,25 @@ public class SortApiService {
         }
     }
 
+//    public long measureSortTime(String algorithm, String numbers) {
+//        long startTime = System.currentTimeMillis();
+//        String sortedNumbers = sort(algorithm, numbers);
+//        long endTime = System.currentTimeMillis();
+//        return endTime - startTime;
+//    }
+
     public long measureSortTime(String algorithm, String numbers) {
-        long startTime = System.currentTimeMillis();
-        sort(algorithm, numbers);
-        long endTime = System.currentTimeMillis();
-        return endTime - startTime;
+        return measureTime(() -> sort(algorithm, numbers));
     }
+
+    private static long measureTime(Runnable task) {
+        long startTime = System.nanoTime();
+        task.run();
+        long endTime = System.nanoTime();
+        long elapsedTime = endTime - startTime;
+        System.out.println("Elapsed time: " + elapsedTime + " ns");
+        return elapsedTime;
+    }
+
+
 }
